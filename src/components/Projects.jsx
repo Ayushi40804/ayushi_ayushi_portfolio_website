@@ -75,7 +75,7 @@ const Projects = () => {
       tech: ['Python', 'Shell Scripting'],
       image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&q=80&w=800',
       github: 'https://github.com/Ayushi40804/Arachnet',
-      live: '#'
+      live: 'https://huggingface.co/spaces/Ayushi40804/Arachnet_Scanning'
     },
     {
       title: 'Hacktoberfest Contributions',
