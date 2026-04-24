@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { ExternalLink, Code2 } from 'lucide-react';
 import './Projects.css';
 
@@ -86,12 +87,40 @@ const Projects = () => {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  };
+
   return (
     <section id="projects" className="projects">
-      <h2>Featured <span className="text-accent">Projects</span></h2>
-      <div className="projects-grid">
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.3 }}
+        transition={{ duration: 0.5 }}
+      >
+        Featured <span className="text-accent">Projects</span>
+      </motion.h2>
+      <motion.div 
+        className="projects-grid"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.1 }}
+      >
         {projectData.map((project, index) => (
-          <div key={index} className="project-card glass-card">
+          <motion.div key={index} className="project-card glass-card" variants={itemVariants} whileHover={{ y: -5 }}>
             <div className="project-image-container">
               <img src={project.image} alt={project.title} className="project-image" />
               <div className="project-overlay">
@@ -112,9 +141,9 @@ const Projects = () => {
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Mail, MapPin, Phone, Send } from 'lucide-react';
 import './Contact.css';
 
@@ -31,9 +32,22 @@ const Contact = () => {
 
   return (
     <section id="contact" className="contact">
-      <h2>Get In <span className="text-accent">Touch</span></h2>
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.3 }}
+        transition={{ duration: 0.5 }}
+      >
+        Get In <span className="text-accent">Touch</span>
+      </motion.h2>
       <div className="contact-content">
-        <div className="contact-info">
+        <motion.div 
+          className="contact-info"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+        >
           <h3>Let's talk about everything!</h3>
           <p>Don't like forms? Send me an email. 👋</p>
           
@@ -60,9 +74,16 @@ const Contact = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <form className="contact-form glass-card" onSubmit={handleSubmit}>
+        <motion.form 
+          className="contact-form glass-card" 
+          onSubmit={handleSubmit}
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+        >
           <div className="form-group">
             <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required />
           </div>
@@ -78,7 +99,7 @@ const Contact = () => {
           <button type="submit" className="btn-primary w-100">
             Send Message <Send className="btn-icon" size={18} />
           </button>
-        </form>
+        </motion.form>
       </div>
     </section>
   );

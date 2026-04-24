@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { ArrowRight, Download } from 'lucide-react';
 import './Hero.css';
 import profilePic from '../assets/ayushi_3.png';
@@ -6,7 +7,13 @@ import profilePic from '../assets/ayushi_3.png';
 const Hero = () => {
   return (
     <section id="home" className="hero">
-      <div className="hero-content">
+      <motion.div 
+        className="hero-content"
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: false, amount: 0.3 }}
+        transition={{ duration: 0.8 }}
+      >
         <h3 className="hero-greeting">Hello, I'm</h3>
         <h1 className="hero-title">
           Ayushi
@@ -28,13 +35,19 @@ const Hero = () => {
             LinkedIn
           </a>
         </div>
-      </div>
-      <div className="hero-image-wrapper">
+      </motion.div>
+      <motion.div 
+        className="hero-image-wrapper"
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: false, amount: 0.3 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
         <div className="hero-image-glow"></div>
         {/* Placeholder image that the user can replace later */}
         <img
           src={profilePic} alt="Ayushi" className="hero-image" />
-      </div>
+      </motion.div>
     </section>
   );
 };
