@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Code2 } from 'lucide-react';
 import './Projects.css';
+import arachnetImage from '../assets/arachnet.png';
 
 const Projects = () => {
   const projectData = [
@@ -73,7 +74,7 @@ const Projects = () => {
       title: 'Arachnet: Vulnerability Scanner',
       description: 'A comprehensive vulnerability scanning tool featuring modules for DNS dumping, IDOR, and XSS detection.',
       tech: ['Python', 'Shell Scripting'],
-      image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&q=80&w=800',
+      image: arachnetImage,
       github: 'https://github.com/Ayushi40804/Arachnet',
       live: 'https://huggingface.co/spaces/Ayushi40804/Arachnet_Scanning'
     },
